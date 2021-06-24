@@ -12,9 +12,9 @@ from torchvision import datasets
 from torchvision import transforms
 import torch.onnx
 
-import utils
-from transformer_net import TransformerNet
-from vgg import Vgg16
+import style_transfer.utils as utils
+from style_transfer.transformer_net import TransformerNet
+from style_transfer.vgg import Vgg16
 
 
 def check_paths(args):

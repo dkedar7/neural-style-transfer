@@ -63,7 +63,7 @@ body_paragraph = dbc.Row(
         
 
 ### 4. Dropdown for selecting style
-passage_dropdown = dbc.Row(
+style_dropdown = dbc.Row(
     [
         dbc.Col(
             [
@@ -76,26 +76,6 @@ passage_dropdown = dbc.Row(
             ]
         )
     ]
-)
-
-### 3 + 4. Passage suggestion to passage input area
-
-
-### Input_question
-input_question = dbc.Row(
-    [
-        dbc.Col(
-            [
-                html.P(html.B("Step 2. Ask a question:")),
-                dbc.Input(
-                    id='input_question',
-                    value = 'What is this passage about?',
-                    style = {'padding':'2% 1% 2% 1%'}
-                )
-            ]
-        )
-    ],
-    style = {'padding':'2% 0% 2% 0%'}
 )
 
 ### Dropdown for selecting model
@@ -120,55 +100,27 @@ model_dropdown = dbc.Row(
     ]
 )
 
-### Submit button
-submit_button = dbc.Row(
-    [
-        dbc.Button("Find answer", id = 'submit_button', size="md",
-        color="primary", disabled = False,
-        className = "mt-3 mx-auto")
-    ],
-    justify = 'center'
-)
+### Upload button
+upload_button = dbc.Col([
+                dcc.Upload(
+        id='upload-image',
+        children=dbc.Col([
+            'Drag and Drop or ',
+            html.A('Select Files')
+        ]),
+        style={
+            'lineHeight': '60px',
+            'borderWidth': '1px',
+            'borderStyle': 'dashed',
+            'borderRadius': '5px',
+            'textAlign': 'center',
+            'margin': '10px'
+        }
+    ),
+])
 
-### Output text
-output_text = dbc.Spinner(
-    dbc.Row(
-    [
-        dbc.Col(
-            [
-                dbc.Jumbotron(html.P(id='output_text',children=['']))
-            ]
-        )
-    ] ,
-    style = {'text-align':'center', 'padding': '5% 0% 5% 0%'}
-    )
-)
-
-# Interpretability and About models section
-tabs = dbc.Row(
-            dbc.Col(
-                dbc.Card(
-                    [
-                        dbc.CardHeader(
-                            dbc.Tabs(
-                                [
-                                    dbc.Tab(label="Interpret", tab_id="interpret-tab"),
-                                    dbc.Tab(label="About BiDAF", tab_id="about-bidaf"),
-                                    dbc.Tab(label="About DistilBERT", tab_id="about-distilbert"),
-                                    dbc.Tab(label="About RoBERTa", tab_id="about-roberta"),
-                                    dbc.Tab(label="About ALBERT", tab_id="about-albert"),
-                                ],
-                                id="tabs",
-                                card=True,
-                                active_tab="interpret-tab",
-                            )
-                        ),
-                        dbc.CardBody(id="card-content"),
-                    ]
-                )
-            ),
-    style = {'height':'50vh'}
-)
+### Display original image
+original_image = html.Img(id='original-image')
 
 ####### Footer #######
 footer = dbc.Row(
@@ -227,7 +179,8 @@ top = dbc.Container(
 
 middle = dbc.Container(
     [
-        submit_button,
+        upload_button,
+        original_image
     ],
     fluid = False
 )

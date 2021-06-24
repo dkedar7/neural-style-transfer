@@ -18,11 +18,21 @@ import random
 import re
 
 from layout import layout as layout
-# from mobile_layout import _apply_mobile_layout
-from callbacks import *
+import callbacks
 from app import app, server, cache, register_before_request
 
 app.layout = layout
+
+@app.callback(
+    Output('original-image', 'src'),
+    [Input('upload-image', 'contents')])
+def update_original_image(contents):
+    if contents:
+        content_type, content_string = contents.split(',')
+        processed_image_string = callbacks.stylize_image(content_string).decode("utf-8")
+    src = 'data:image/png;base64,{}'.format(processed_image_string)
+    
+    return src
 
 
 if __name__ == '__main__':
