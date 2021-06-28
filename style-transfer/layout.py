@@ -3,6 +3,8 @@ import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
 
+from callbacks import map_style_model_path
+
 theme_color_code = "#4052AB" #Indigo
 
 ### 1. Header
@@ -14,7 +16,7 @@ navbar = dbc.Row(
                             [
                                 html.A(
                                     html.I(className = "fa-2x fab fa-github", style={'color':'#ffffff'}),
-                                href = "https://github.com/dkedar7/MachineComprehension", target="_blank",
+                                href = "https://github.com/dkedar7/neural-style-transfer", target="_blank",
                                 className="mr-3"
                                     ),
                                     html.A(
@@ -46,7 +48,7 @@ body_paragraph = dbc.Row(
         dbc.Col(
                 [
                     html.H4(
-                        "Apply a style to your photos",
+                        "Stylize your photos using popular styles",
                         style={'text-align':'center', "color":"white", "font-family": "Verdana; Gill Sans"}
                             ),
                     html.Br(),
@@ -60,8 +62,30 @@ body_paragraph = dbc.Row(
     ],
     style = {'text-align':'center', "padding":"2% 2% 1% 1%", "background-color":theme_color_code}
 )
-        
 
+
+### 3. Upload button
+upload_button = dbc.Col(
+    [
+        dcc.Upload(id='upload-image',
+                   children = dbc.Col(
+                       [
+                           'Drag and Drop or ',
+                           html.A('Select Files')
+                       ]
+                   ),
+                   style={
+                       'lineHeight': '60px',
+                        'borderWidth': '1px',
+                        'borderStyle': 'dashed',
+                        'borderRadius': '5px',
+                        'textAlign': 'center',
+                        'margin': '10px'
+                   }
+            ),
+        ]
+)
+        
 ### 4. Dropdown for selecting style
 style_dropdown = dbc.Row(
     [
@@ -70,7 +94,7 @@ style_dropdown = dbc.Row(
                 html.P(html.B("Select a style")),
                 dcc.Dropdown(
                     id='passage_dropdown',
-                    options=[{'label':"key", 'value' : "key"}],
+                    options=[{'label':key, 'value' : key} for key in map_style_model_path],
                     placeholder = 'Passage suggestions'
             )
             ]
@@ -78,49 +102,22 @@ style_dropdown = dbc.Row(
     ]
 )
 
-### Dropdown for selecting model
-model_dropdown = dbc.Row(
+
+### 5. Display original image
+original_image = dbc.Row(
     [
         dbc.Col(
             [
-                html.P(html.B("Step 3. Choose a model:")),
-                dcc.Dropdown(
-                    id='model_dropdown',
-                    options = [{'label':"BiDAF", 'value' : "bidaf_dd"},
-                            {'label':"DistilBERT", 'value' : "distilbert_dd"},
-                            {'label':"RoBERTA", 'value' : "roberta_dd"},
-                            {'label':"ALBERT", 'value' : "albert_dd"}
-                    ],
-                    value = "bidaf_dd",
-                    searchable=False,
-                    clearable=False
-                )
+                html.Img(id='original-image'),
+                html.Img(id='processed-image')
             ]
         )
     ]
 )
 
-### Upload button
-upload_button = dbc.Col([
-                dcc.Upload(
-        id='upload-image',
-        children=dbc.Col([
-            'Drag and Drop or ',
-            html.A('Select Files')
-        ]),
-        style={
-            'lineHeight': '60px',
-            'borderWidth': '1px',
-            'borderStyle': 'dashed',
-            'borderRadius': '5px',
-            'textAlign': 'center',
-            'margin': '10px'
-        }
-    ),
-])
+# style_image = 
 
-### Display original image
-original_image = html.Img(id='original-image')
+processed_image = dbc.Row
 
 ####### Footer #######
 footer = dbc.Row(
@@ -133,8 +130,8 @@ footer = dbc.Row(
                     This application uses open-source work from 
                 """,
                 html.A(
-                    html.U("Hugging Face"), 
-                href = "https://huggingface.co/",
+                    html.U("PyTorch tutorials"), 
+                href = "https://github.com/pytorch/examples/tree/master/fast_neural_style/",
                 target = "_blank",
                 style = {"color":"white"}),
                 """
@@ -152,7 +149,7 @@ footer = dbc.Row(
                 html.Span(
                     html.A(
                         html.I(className="fa-2x fab fa-github", style={"color":"#ffffff"}),
-                        href="https://github.com/dkedar7/MachineComprehension",
+                        href="https://github.com/dkedar7/neural-style-transfer",
                         target = "_blank"
                     ),
                 ),
@@ -180,7 +177,8 @@ top = dbc.Container(
 middle = dbc.Container(
     [
         upload_button,
-        original_image
+        style_dropdown,
+        images
     ],
     fluid = False
 )
@@ -198,5 +196,5 @@ layout = dbc.Container(
     middle,
     bottom
     ],
-    fluid = True
+    fluid = False
 )

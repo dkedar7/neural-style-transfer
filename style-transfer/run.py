@@ -24,15 +24,28 @@ from app import app, server, cache, register_before_request
 app.layout = layout
 
 @app.callback(
-    Output('original-image', 'src'),
-    [Input('upload-image', 'contents')])
-def update_original_image(contents):
+    Output('processed-image', 'src'),
+    [Input('upload-image', 'contents')]
+)
+def update_processed_image(contents):
     if contents:
         content_type, content_string = contents.split(',')
         processed_image_string = callbacks.stylize_image(content_string).decode("utf-8")
-    src = 'data:image/png;base64,{}'.format(processed_image_string)
-    
-    return src
+        return processed_image_string
+    else:
+        return None
+
+@app.callback(
+    Output('original-image', 'src'),
+    [Input('upload-image', 'contents')]
+)
+def update_original_image(contents):
+    if contents:
+        content_type, content_string = contents.split(',')
+        content_image_string = 'data:image/png;base64,{}'.format(content_string)
+        return content_image_string
+    else:
+        return None
 
 
 if __name__ == '__main__':
