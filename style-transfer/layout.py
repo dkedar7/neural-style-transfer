@@ -104,20 +104,17 @@ style_dropdown = dbc.Row(
 
 
 ### 5. Display original image
-original_image = dbc.Row(
+images = dbc.Row(
     [
-        dbc.Col(
-            [
-                html.Img(id='original-image'),
-                html.Img(id='processed-image')
-            ]
-        )
+        dbc.Col(html.Img(id='original-image')),
+        dbc.Col(html.Img(id='processed-image'))
     ]
 )
 
+
 # style_image = 
 
-processed_image = dbc.Row
+# processed_image = dbc.Row
 
 ####### Footer #######
 footer = dbc.Row(
