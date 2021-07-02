@@ -31,6 +31,7 @@ def update_processed_image(contents):
     if contents:
         content_type, content_string = contents.split(',')
         processed_image_string = callbacks.stylize_image(content_string).decode("utf-8")
+        processed_image_string = 'data:image/png;base64,{}'.format(processed_image_string)
         return processed_image_string
     else:
         return None

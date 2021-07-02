@@ -32,7 +32,7 @@ def save_image(data):
     img_str = base64.b64encode(buffered.getvalue())
         
     return img_str
-#     img.save(filename)
+#     img.save("filename.png")
 
 
 def gram_matrix(y):
