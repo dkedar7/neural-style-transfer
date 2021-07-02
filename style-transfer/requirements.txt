@@ -1,0 +1,8 @@
+Flask==1.1.1
+gunicorn==20.0.4
+numpy==1.17.4
+dash
+dash_bootstrap_components
+flask_caching
+pytorch
+PIL
