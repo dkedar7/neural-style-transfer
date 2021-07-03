@@ -4,5 +4,5 @@ numpy==1.17.4
 dash
 dash_bootstrap_components
 flask_caching
-pytorch
+torch
 Pillow
