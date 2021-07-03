@@ -1,8 +1,10 @@
 Flask==1.1.1
 gunicorn==20.0.4
 numpy==1.17.4
-dash
-dash_bootstrap_components
-flask_caching
-torch
-Pillow
+dash==1.13.4
+dash_bootstrap_components==0.10.3
+flask_caching==1.9.0
+torch==1.8.1
+torchvision==0.9.1
+Pillow==7.2.0
+requests==2.24.0

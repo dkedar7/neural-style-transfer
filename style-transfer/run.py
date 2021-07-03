@@ -6,7 +6,6 @@ from dash.dependencies import Input, Output, State
 from urllib.parse import quote as urlquote
 import flask
 from flask import Flask, send_from_directory, send_file, request, session, _request_ctx_stack
-import requests
 
 import base64
 import datetime
