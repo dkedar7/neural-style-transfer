@@ -95,7 +95,7 @@ style_dropdown = dbc.Row(
                 dcc.Dropdown(
                     id='passage_dropdown',
                     options=[{'label':key, 'value' : key} for key in map_style_model_path],
-                    placeholder = 'Passage suggestions'
+                    placeholder = 'Styles'
             )
             ]
         )
