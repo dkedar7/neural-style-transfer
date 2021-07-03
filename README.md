@@ -1,4 +1,4 @@
-# Neural Style TRansfer
+# Neural Style Transfer
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/flask)
