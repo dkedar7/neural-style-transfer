@@ -23,12 +23,13 @@ app.layout = layout
 
 @app.callback(
     Output('processed-image', 'src'),
-    [Input('upload-image', 'contents')]
+    [Input('upload-image', 'contents'),
+    Input('passage_dropdown', 'value')]
 )
-def update_processed_image(contents):
+def update_processed_image(contents, model):
     if contents:
         content_type, content_string = contents.split(',')
-        processed_image_string = callbacks.stylize_image(content_string).decode("utf-8")
+        processed_image_string = callbacks.stylize_image(content_string, model).decode("utf-8")
         processed_image_string = 'data:image/png;base64,{}'.format(processed_image_string)
         return processed_image_string
     else:

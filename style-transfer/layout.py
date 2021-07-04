@@ -70,8 +70,7 @@ upload_button = dbc.Col(
         dcc.Upload(id='upload-image',
                    children = dbc.Col(
                        [
-                           'Drag and Drop or ',
-                           html.A('Select Files')
+                           'Click to upload an image'
                        ]
                    ),
                    style={
@@ -95,7 +94,8 @@ style_dropdown = dbc.Row(
                 dcc.Dropdown(
                     id='passage_dropdown',
                     options=[{'label':key, 'value' : key} for key in map_style_model_path],
-                    placeholder = 'Styles'
+                    placeholder = 'Styles',
+                    value='Mosaic'
             )
             ]
         )
