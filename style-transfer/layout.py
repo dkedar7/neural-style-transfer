@@ -106,15 +106,11 @@ style_dropdown = dbc.Row(
 ### 5. Display original image
 images = dbc.Row(
     [
-        dbc.Container(dbc.Col(html.Img(id='original-image', style={'height':'10%'}))),
-        dbc.Container(dbc.Col(html.Img(id='processed-image', style={'height':'10%'})))
+        dbc.Col(dbc.CardImg(id='original-image'), style ={"padding" : "2% 1% 1% 2%"}),
+        dbc.Col(dbc.CardImg(id='processed-image'), style ={"padding" : "2% 1% 1% 2%"})
     ]
 )
 
-
-# style_image = 
-
-# processed_image = dbc.Row
 
 ####### Footer #######
 footer = dbc.Row(
