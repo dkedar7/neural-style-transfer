@@ -106,8 +106,18 @@ style_dropdown = dbc.Row(
 ### 5. Display original image
 images = dbc.Row(
     [
-        dbc.Col(dbc.CardImg(id='original-image'), style ={"padding" : "2% 1% 1% 2%"}),
-        dbc.Col(dbc.CardImg(id='processed-image'), style ={"padding" : "2% 1% 1% 2%"})
+        dbc.Col(dbc.CardImg(id='original-image', alt="Original image"), style = {"padding" : "2% 1% 1% 2%", 
+                                                            'lineHeight': '60px',
+                                                            'borderWidth': '1px',
+                                                            'borderStyle': 'dashed',
+                                                            'borderRadius': '5px',
+                                                            'margin': '10px'}),
+        dbc.Col(dbc.CardImg(id='processed-image', alt="Style applied image"), style = {"padding" : "2% 1% 1% 2%", 
+                                                            'lineHeight': '60px',
+                                                            'borderWidth': '1px',
+                                                            'borderStyle': 'dashed',
+                                                            'borderRadius': '5px',
+                                                            'margin': '10px'})
     ]
 )
 
