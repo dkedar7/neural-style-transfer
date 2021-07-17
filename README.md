@@ -8,9 +8,16 @@
     <br>
 <p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/flask)
-![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/dash)
+<p align="center">
+    <a href="https://opensource.org/licenses/MIT">
+        <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+    </a>
+    <a href="https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/flask">
+        <img alt="Flask">
+    </a>
+    <a href="https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/dash">
+        <img alt="Dash">
+</p>
 
 
 #### Under active development
