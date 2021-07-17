@@ -14,7 +14,6 @@ encoded_image = base64.b64encode(open(image_filename, 'rb').read()).decode("utf-
 # 1. Navbar placeholder (currently black row)
 navbar = dbc.Row()
 
-
 # 2. Mosaic icon image
 icon_image = dbc.Row(
                     html.Img(src='data:image/png;base64,{}'.format(encoded_image),
