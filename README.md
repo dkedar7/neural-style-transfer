@@ -1,12 +1,10 @@
-# Neural Style Transfer
-
-<p align="center">
-    <h1>Neural Style Transfer</h1>
+<p>
+    <h1 align="center">Neural Style Transfer</h1>
 <p>
 
 <p align="center">
     <br>
-    <img src="https://raw.githubusercontent.com/dkedar7/neural-style-transfer/dev/style-transfer/assets/icon.png" width="400"/>
+    <img src="https://raw.githubusercontent.com/dkedar7/neural-style-transfer/dev/style-transfer/assets/icon.png" width="200"/>
     <br>
 <p>
 
@@ -14,7 +12,6 @@
 ![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/flask)
 ![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/dash)
 
-<!-- ![Data Analyzer Demo](https://github.com/dkedar7/Data-Analyzer/blob/master/Analyzer/assets/Demo.png?raw=true) -->
 
 #### Under active development
 Inspired from this PyTorch [tutorial](https://github.com/pytorch/examples/tree/master/fast_neural_style/).
