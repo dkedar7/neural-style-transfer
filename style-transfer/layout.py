@@ -20,7 +20,7 @@ icon_image = dbc.Row(
                     html.Img(src='data:image/png;base64,{}'.format(encoded_image),
                     style={'width':'178px', 'margin-top': "5%"}),
                     justify='center'
-        )
+)
 
 
 ### 3. Body title
@@ -32,6 +32,7 @@ body_paragraph = dbc.Row(
                         "Neural Style Transfer",
                         style={'text-align':'center', "color":"black", "font-family": "Verdana; Gill Sans"}
                             ),
+
                     html.Br(),
                     html.H5(
                         "Apply styles from well-known pieces of art to your own photos",
@@ -41,10 +42,20 @@ body_paragraph = dbc.Row(
                 style ={"padding":"1% 1% 3% 0%", "background-color":theme_color_code}
                )
     ],
-    style = {'text-align':'center', "padding":"1% 1% 1% 1%", "background-color":theme_color_code}
+    style = {'text-align':'center', "padding":"1% 1% 1% 0%", "background-color":theme_color_code}
 )
 
-### 4. Upload button
+### 4. Github logo
+github_logo = dbc.Row(
+            html.A(
+                html.I(className = "fa-2x fab fa-github", style={'color':'#000000'}),
+                href = "https://github.com/dkedar7/neural-style-transfer", target="_blank",
+                className="mr-3"
+        ),
+        justify='center'
+)
+
+### 5. Upload button
 upload_button = dbc.Col(
     [
         dcc.Upload(id='upload-image',
@@ -65,7 +76,7 @@ upload_button = dbc.Col(
         ]
 )
         
-### 5. Dropdown for selecting style
+### 6. Dropdown for selecting style
 style_dropdown = dbc.Row(
     [
         dbc.Col(
@@ -83,7 +94,7 @@ style_dropdown = dbc.Row(
 )
 
 
-### 6. Display original and processed images
+### 7. Display original and processed images
 images = dbc.Row(
     [
         dbc.Col(dbc.CardImg(id='original-image'), style = {"padding" : "2% 1% 1% 2%", 
@@ -101,10 +112,7 @@ images = dbc.Row(
     ]
 )
 
-### 6. Github logo
-
-
-### 7. Footer
+### 8. Footer
 footer = dbc.Row(
     dbc.Col(
         html.Div(
@@ -114,11 +122,12 @@ footer = dbc.Row(
         html.A("PyTorch tutorials.", 
                 href = "https://github.com/pytorch/examples/tree/master/fast_neural_style/",
                 target = "_blank")
-        ]
+        ],
     ),
     width={"size": 10}
 ), 
-    justify='center'
+    justify='center',
+    align='center'
 )
 
 ### Bring it together
@@ -128,6 +137,7 @@ top = dbc.Container(
         navbar,
         icon_image,
         body_paragraph,
+        github_logo
     ],
     fluid = False
 )
@@ -142,7 +152,7 @@ middle = dbc.Container(
 )
 
 bottom = dbc.Container(
-    [
+    [   
         footer
     ],
     fluid = False
