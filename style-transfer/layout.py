@@ -138,7 +138,6 @@ middle = dbc.Container(
         style_dropdown,
         images
     ],
-    className='holygrail-main',
     fluid = False
 )
 
