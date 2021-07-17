@@ -17,6 +17,7 @@
     </a>
     <a href="">
         <img alt="Dash" src="https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/dash">
+    </a>
 </p>
 
 
