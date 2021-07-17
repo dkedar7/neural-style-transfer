@@ -22,23 +22,3 @@ app = dash.Dash(__name__, external_stylesheets=external_stylesheets,
                 )
 cache = Cache(app.server)
 app.title = "Style Transfer"
-
-def register_before_request(app):
-
-    @app.server.before_request
-    def before_request_func():
-        """Checks if user agent is from mobile to determine which layout
-        to serve before user makes any requests.
-        """
-        agent = request.headers.get("User_Agent")
-        mobile_string = ("(?i)android|fennec|iemobile|iphone|opera"
-                        " (?:mini|mobi)|mobile")
-        re_mobile = re.compile(mobile_string)
-        is_mobile = len(re_mobile.findall(agent)) > 0
-
-        if is_mobile:
-#             mobile_layout = _apply_mobile_layout()
-            app.layout = layout
-        else:  # Desktop request
-#             mobile_layout = _apply_mobile_layout()
-            app.layout = layout

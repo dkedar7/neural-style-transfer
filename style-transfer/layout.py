@@ -2,69 +2,59 @@ import dash
 import dash_core_components as dcc
 import dash_html_components as html
 import dash_bootstrap_components as dbc
+import base64
 
 from callbacks import map_style_model_path
 
-theme_color_code = "#4052AB" #Indigo
+theme_color_code = "#ffffff" #Indigo
 
-### 1. Header
-navbar = dbc.Row(
-            dbc.Col(
-                dbc.NavbarSimple(
-                    children=[
-                        html.Span(
-                            [
-                                html.A(
-                                    html.I(className = "fa-2x fab fa-github", style={'color':'#ffffff'}),
-                                href = "https://github.com/dkedar7/neural-style-transfer", target="_blank",
-                                className="mr-3"
-                                    ),
-                                    html.A(
-                                    html.I(className = "fa-2x fab fa-twitter-square", style={'color':'#ffffff'}),
-                                href = "https://www.twitter.com/dkedar7/", target="_blank",
-                                className="mr-3"
-                                    ),
-                                    html.A(
-                                    html.I(className = "fa-2x fab fa-linkedin", style={'color':'#ffffff'}),
-                                href = "https://www.linkedin.com/in/dkedar7/", target="_blank",
-                                className="mr-3"
-                                    )
-                            ]
-                        ),
-                    ],
-                    brand="Style Transfer",
-                    brand_href=None,
-                    color=theme_color_code,
-                    dark=True,
-                    style = {"font-size":"18", "padding":"2% 2% 0% 2%"}
-                )
-            )
-    ,style ={"background-color":theme_color_code}
+image_filename = 'assets/icon.png' # replace with your own image
+encoded_image = base64.b64encode(open(image_filename, 'rb').read()).decode("utf-8")
+
+# 1. Navbar placeholder (currently black row)
+navbar = dbc.Row()
+
+# 2. Mosaic icon image
+icon_image = dbc.Row(
+                    html.Img(src='data:image/png;base64,{}'.format(encoded_image),
+                    style={'width':'178px', 'margin-top': "5%"}),
+                    justify='center'
 )
 
-### 2. Body title
+
+### 3. Body title
 body_paragraph = dbc.Row(
     [
         dbc.Col(
                 [
-                    html.H4(
-                        "Stylize your photos using popular styles",
-                        style={'text-align':'center', "color":"white", "font-family": "Verdana; Gill Sans"}
+                    html.H1(
+                        "Neural Style Transfer",
+                        style={'text-align':'center', "color":"black", "font-family": "Verdana; Gill Sans"}
                             ),
+
                     html.Br(),
                     html.H5(
-                        "",
-                        style={'text-align':'center', "color":"white", "font-family": "Verdana; Gill Sans"}
+                        "Apply styles from well-known pieces of art to your own photos",
+                        style={'text-align':'center', "color":"darkgray", "font-family": "Verdana; Gill Sans"}
                             )
                 ],
-                style ={"padding":"2% 2% 3% 1%", "background-color":theme_color_code}
+                style ={"padding":"1% 1% 3% 0%", "background-color":theme_color_code}
                )
     ],
-    style = {'text-align':'center', "padding":"2% 2% 1% 1%", "background-color":theme_color_code}
+    style = {'text-align':'center', "padding":"1% 1% 1% 0%", "background-color":theme_color_code}
 )
 
+### 4. Github logo
+github_logo = dbc.Row(
+            html.A(
+                html.I(className = "fa-2x fab fa-github", style={'color':'#000000'}),
+                href = "https://github.com/dkedar7/neural-style-transfer", target="_blank",
+                className="mr-3"
+        ),
+        justify='center'
+)
 
-### 3. Upload button
+### 5. Upload button
 upload_button = dbc.Col(
     [
         dcc.Upload(id='upload-image',
@@ -85,7 +75,7 @@ upload_button = dbc.Col(
         ]
 )
         
-### 4. Dropdown for selecting style
+### 6. Dropdown for selecting style
 style_dropdown = dbc.Row(
     [
         dbc.Col(
@@ -103,16 +93,16 @@ style_dropdown = dbc.Row(
 )
 
 
-### 5. Display original image
+### 7. Display original and processed images
 images = dbc.Row(
     [
-        dbc.Col(dbc.CardImg(id='original-image', alt="Original image"), style = {"padding" : "2% 1% 1% 2%", 
+        dbc.Col(dbc.CardImg(id='original-image'), style = {"padding" : "2% 1% 1% 2%", 
                                                             'lineHeight': '60px',
                                                             'borderWidth': '1px',
                                                             'borderStyle': 'dashed',
                                                             'borderRadius': '5px',
                                                             'margin': '10px'}),
-        dbc.Col(dbc.CardImg(id='processed-image', alt="Style applied image"), style = {"padding" : "2% 1% 1% 2%", 
+        dbc.Col(dbc.CardImg(id='processed-image'), style = {"padding" : "2% 1% 1% 2%", 
                                                             'lineHeight': '60px',
                                                             'borderWidth': '1px',
                                                             'borderStyle': 'dashed',
@@ -121,60 +111,34 @@ images = dbc.Row(
     ]
 )
 
-
-####### Footer #######
+### 8. Footer
 footer = dbc.Row(
-    [
-        dbc.Col(
-            [
-                html.P(
-                [
-                """
-                    This application uses open-source work from 
-                """,
-                html.A(
-                    html.U("PyTorch tutorials"), 
+    dbc.Col(
+        html.Div(
+        [
+            'Transferring styles from one image to another is just one application of a class neural networks called Generalized Adversarial Networks'
+        ' or GANs, for short. This application uses open-source work from ',
+        html.A("PyTorch tutorials.", 
                 href = "https://github.com/pytorch/examples/tree/master/fast_neural_style/",
-                target = "_blank",
-                style = {"color":"white"}),
-                """
-                .
-                """
-                ],
-                style = {"color":"white"}
-            )
-            ],
-            className="footer-disclaimer-content ",
-            width=8,
-        ),
-        dbc.Col(
-            [
-                html.Span(
-                    html.A(
-                        html.I(className="fa-2x fab fa-github", style={"color":"#ffffff"}),
-                        href="https://github.com/dkedar7/neural-style-transfer",
-                        target = "_blank"
-                    ),
-                ),
-                html.Span(
-                    "   Copyright 2020", style={"color":"white"}
-                ),
-            ],
-            width={"size" : 3, "offset":1}
-        ),
-    ],
-    style ={"background-color":theme_color_code, "padding" : "2% 0% 0% 2%"}
+                target = "_blank")
+        ],
+    ),
+    width={"size": 10}
+), 
+    justify='center',
+    align='center'
 )
-    
 
 ### Bring it together
 top = dbc.Container(
     [
         dcc.Store(id='memory-output', storage_type='memory'),
         navbar,
+        icon_image,
         body_paragraph,
+        github_logo
     ],
-    fluid = True
+    fluid = False
 )
 
 middle = dbc.Container(
@@ -187,17 +151,16 @@ middle = dbc.Container(
 )
 
 bottom = dbc.Container(
-    [
+    [   
         footer
     ],
-    fluid = True
+    fluid = False
 )
 
 layout = dbc.Container(
     [
-    top, 
-    middle,
-    bottom
-    ],
-    fluid = True
+        top, 
+        middle,
+        bottom
+    ]
 )

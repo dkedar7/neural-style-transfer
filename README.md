@@ -1,10 +1,25 @@
-# Neural Style Transfer
+<p>
+    <h1 align="center">Neural Style Transfer</h1>
+<p>
 
-[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/flask)
-![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/dash)
+<p align="center">
+    <br>
+    <img src="https://raw.githubusercontent.com/dkedar7/neural-style-transfer/dev/style-transfer/assets/icon.png" width="200"/>
+    <br>
+<p>
 
-<!-- ![Data Analyzer Demo](https://github.com/dkedar7/Data-Analyzer/blob/master/Analyzer/assets/Demo.png?raw=true) -->
+<p align="center">
+    <a href="https://opensource.org/licenses/MIT">
+        <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
+    </a>
+    <a href="">
+        <img alt="Flask" src="https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/flask">
+    </a>
+    <a href="">
+        <img alt="Dash" src="https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/dash">
+    </a>
+</p>
+
 
 #### Under active development
 Inspired from this PyTorch [tutorial](https://github.com/pytorch/examples/tree/master/fast_neural_style/).
