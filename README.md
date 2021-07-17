@@ -1,5 +1,15 @@
 # Neural Style Transfer
 
+<p align="center">
+    <h1>Neural Style Transfer</h1>
+<p>
+
+<p align="center">
+    <br>
+    <img src="https://raw.githubusercontent.com/dkedar7/neural-style-transfer/dev/style-transfer/assets/icon.png" width="400"/>
+    <br>
+<p>
+
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 ![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/flask)
 ![GitHub Pipenv locked dependency version](https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/dash)
