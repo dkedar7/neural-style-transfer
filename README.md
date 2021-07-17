@@ -12,11 +12,11 @@
     <a href="https://opensource.org/licenses/MIT">
         <img alt="License" src="https://img.shields.io/badge/License-MIT-yellow.svg">
     </a>
-    <a href="https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/flask">
-        <img alt="Flask">
+    <a href="">
+        <img alt="Flask" src="https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/flask">
     </a>
-    <a href="https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/dash">
-        <img alt="Dash">
+    <a href="">
+        <img alt="Dash" src="https://img.shields.io/github/pipenv/locked/dependency-version/dkedar7/Data-Analyzer/dash">
 </p>
 
 
