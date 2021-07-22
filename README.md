@@ -37,7 +37,7 @@ The demo application is currently hosted [here](https://neural-style-transfer-hp
 
     python -m venv StyleTransfer
         
-#### Step 3. Active this environment, on Windows:
+#### Step 3. Activate this environment, on Windows:
 
     StyleTransfer\scripts\activate
 
