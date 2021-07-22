@@ -1,5 +1,6 @@
 from style_transfer import neural_style
 
+# dictionary to save (Name of the style, Path of the model that does style transfer)
 map_style_model_path = {'Candy':'saved_models/candy.pth',
                         'Mosaic':'saved_models/mosaic.pth',
                         'Rain Princess':'saved_models/rain_princess.pth',
