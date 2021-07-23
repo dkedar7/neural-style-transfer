@@ -8,8 +8,11 @@ from callbacks import map_style_model_path
 
 theme_color_code = "#ffffff" #Indigo
 
-image_filename = 'assets/icon.png' # replace with your own image
+image_filename = 'assets/icon.png' # Icon omage
 encoded_image = base64.b64encode(open(image_filename, 'rb').read()).decode("utf-8")
+
+image_filename = 'assets/defaultimage.jpeg' # default image
+encoded_image_default = base64.b64encode(open(image_filename, 'rb').read()).decode("utf-8")
 
 # 1. Navbar placeholder (currently black row)
 navbar = dbc.Row()
@@ -96,14 +99,15 @@ style_dropdown = dbc.Row(
 ### 7. Display original and processed images
 images = dbc.Row(
     [
-        dbc.Col(dbc.CardImg(id='original-image'), style = {"padding" : "2% 1% 1% 2%", 
+        dbc.Col(dbc.CardImg(id='original-image', src='data:image/png;base64,{}'.format(encoded_image_default)), 
+                                                    style = {"padding" : "2% 1% 1% 2%", 
                                                             'lineHeight': '60px',
                                                             'borderWidth': '1px',
                                                             'borderStyle': 'dashed',
                                                             'borderRadius': '5px',
                                                             'margin': '10px'}),
         dbc.Col(dbc.CardImg(id='processed-image'), style = {"padding" : "2% 1% 1% 2%", 
-                                                            'lineHeight': '60px',
+                                                            'lineHeight': '60px',   
                                                             'borderWidth': '1px',
                                                             'borderStyle': 'dashed',
                                                             'borderRadius': '5px',
@@ -116,7 +120,7 @@ footer = dbc.Row(
     dbc.Col(
         html.Div(
         [
-            'Transferring styles from one image to another is just one application of a class neural networks called Generalized Adversarial Networks'
+            'Transferring styles from one image to another is just one application of a class of neural networks called Generalized Adversarial Networks'
         ' or GANs, for short. This application uses open-source work from ',
         html.A("PyTorch tutorials.", 
                 href = "https://github.com/pytorch/examples/tree/master/fast_neural_style/",
@@ -126,7 +130,8 @@ footer = dbc.Row(
     width={"size": 10}
 ), 
     justify='center',
-    align='center'
+    align='center',
+    style={'margin-bottom': "10%"}
 )
 
 ### Bring it together
