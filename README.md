@@ -23,6 +23,7 @@
 
 #### Under active development
 Inspired from this PyTorch [tutorial](https://github.com/pytorch/examples/tree/master/fast_neural_style/).
+<a href="https://github.com/pytorch/examples/tree/master/fast_neural_style/m" target="_blank">tutorial</a>
 
 
 ## Installation (WIP)
