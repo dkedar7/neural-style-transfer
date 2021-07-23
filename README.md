@@ -25,6 +25,7 @@
 Inspired from this PyTorch [tutorial](https://github.com/pytorch/examples/tree/master/fast_neural_style/).
 
 
+
 ## Installation (WIP)
 
 The demo application is currently hosted [here](https://neural-style-transfer-hpn4y2dvda-uc.a.run.app/).
